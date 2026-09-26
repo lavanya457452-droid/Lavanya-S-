@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>{{ comic.title }} - ComicCraft</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+</head>
+
+<body>
+    <main class="page-container">
+        <section class="comic-header">
+            <p class="eyebrow">
+                YOUR GENERATED COMIC
+            </p>
+
+            <h1>{{ comic.title }}</h1>
+
+            <p class="intro">
+                Your comic is ready. Each image is small, and the story text
+                appears directly below it.
+            </p>
+
+            <div class="action-row">
+                <a
+                    class="primary-button"
+                    href="{{ comic.pdf_url }}"
+                    download
+                >
+                    Download Comic PDF
+                </a>
+
+                <a
+                    class="secondary-button"
+                    href="/"
+                >
+                    Create Another Comic
+                </a>
+            </div>
+        </section>
+
+        <section class="comic-grid">
+            {% for panel in comic.panels %}
+                <article class="panel-card">
+                    <div class="panel-heading">
+                        <span class="panel-number">
+                            {{ "%02d"|format(panel.number) }}
+                        </span>
+
+                        <div>
+                            <p class="panel-label">
+                                COMIC PANEL
+                            </p>
+
+                            <h2>{{ panel.title }}</h2>
+                        </div>
+                    </div>
+
+                    <img
+                        src="{{ panel.image_url }}"
+                        alt="Artwork for panel {{ panel.number }}: {{ panel.title }}"
+                        class="panel-image"
+                    >
+
+                    <div class="panel-content">
+                        <p class="scene-description">
+                            {{ panel.scene_description }}
+                        </p>
+
+                        <div class="story-section">
+                            <h3>Caption</h3>
+                            <p>{{ panel.caption }}</p>
+                        </div>
+
+                        <div class="story-section">
+                            <h3>Narration</h3>
+                            <p>{{ panel.narration }}</p>
+                        </div>
+
+                        <div class="story-section dialogue-section">
+                            <h3>Dialogue</h3>
+                            <p>{{ panel.dialogue }}</p>
+                        </div>
+
+                        <details class="prompt-details">
+                            <summary>
+                                View Image Generation Prompt
+                            </summary>
+
+                            <p>{{ panel.image_prompt }}</p>
+                        </details>
+                    </div>
+                </article>
+            {% endfor %}
+        </section>
+
+        <section class="bottom-actions">
+            <a
+                class="primary-button"
+                href="{{ comic.pdf_url }}"
+                download
+            >
+                Download Your Comic as PDF
+            </a>
+
+            <a
+                class="secondary-button"
+                href="/"
+            >
+                Start a New Story
+            </a>
+        </section>
+    </main>
+</body>
+</html>

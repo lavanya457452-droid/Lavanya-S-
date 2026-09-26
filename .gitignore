@@ -1,0 +1,34 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment file with private API keys
+.env
+
+# IDE files
+.vscode/
+.idea/
+
+# Test cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Generated image files
+static/panels/*.png
+static/panels/*.jpg
+static/panels/*.jpeg
+static/panels/*.webp
+
+# Generated PDFs
+static/exports/*.pdf
+
+# Keep empty folders in Git
+!static/panels/.gitkeep
+!static/exports/.gitkeep

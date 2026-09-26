@@ -1,0 +1,366 @@
+:root {
+    --background: #f4efe6;
+    --surface: #ffffff;
+    --text: #252525;
+    --muted-text: #6c6c6c;
+    --primary: #5b35d5;
+    --primary-dark: #4325a5;
+    --border: #ddd4c6;
+    --accent: #f7c948;
+    --error-bg: #fff0f0;
+    --error-border: #e19696;
+    --shadow: 0 12px 35px rgba(25, 20, 15, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--text);
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(247, 201, 72, 0.35),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(91, 53, 213, 0.18),
+            transparent 35%
+        ),
+        var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.page-container {
+    width: min(1000px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 35px 0 60px;
+}
+
+.card,
+.panel-card,
+.feature-card {
+    border: 1px solid rgba(55, 45, 35, 0.1);
+    border-radius: 16px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+}
+
+.hero-card {
+    max-width: 720px;
+    margin: 0 auto 30px;
+    padding: 35px;
+}
+
+.success-card {
+    max-width: 650px;
+    margin: 90px auto;
+    padding: 42px;
+    text-align: center;
+}
+
+.eyebrow,
+.panel-label {
+    margin: 0 0 10px;
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+h1 {
+    margin-bottom: 14px;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+}
+
+h2 {
+    margin-bottom: 8px;
+    font-size: 1.35rem;
+}
+
+h3 {
+    margin-bottom: 6px;
+    color: var(--primary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.intro {
+    max-width: 680px;
+    color: var(--muted-text);
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.comic-form {
+    margin-top: 25px;
+}
+
+label {
+    display: block;
+    margin: 18px 0 8px;
+    font-weight: 700;
+}
+
+input,
+textarea,
+select {
+    display: block;
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 12px;
+    color: var(--text);
+    background: #ffffff;
+    font: inherit;
+}
+
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 3px solid rgba(91, 53, 213, 0.2);
+    border-color: var(--primary);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.primary-button,
+.secondary-button {
+    display: inline-block;
+    margin-top: 22px;
+    border-radius: 9px;
+    padding: 12px 17px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.primary-button {
+    border: 0;
+    color: #ffffff;
+    background: var(--primary);
+    cursor: pointer;
+    font: inherit;
+}
+
+.primary-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    margin-left: 10px;
+    color: var(--primary);
+    background: #eee9ff;
+}
+
+.secondary-button:hover {
+    transform: translateY(-2px);
+}
+
+.error-box {
+    margin-top: 18px;
+    border: 1px solid var(--error-border);
+    border-radius: 10px;
+    padding: 14px;
+    color: #7e1c1c;
+    background: var(--error-bg);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.feature-card {
+    padding: 22px;
+}
+
+.feature-card p {
+    margin-bottom: 0;
+    color: var(--muted-text);
+    line-height: 1.6;
+}
+
+.comic-header {
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.action-row,
+.bottom-actions {
+    text-align: center;
+}
+
+.comic-grid {
+    display: grid;
+    gap: 24px;
+}
+
+.panel-card {
+    overflow: hidden;
+    min-height: 0;
+}
+
+.panel-heading {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 22px 14px;
+}
+
+.panel-heading h2 {
+    margin: 0;
+}
+
+.panel-number {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+    border-radius: 50%;
+    color: #ffffff;
+    background: var(--primary);
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+/* ==========================================
+   SMALL COMIC IMAGE SIZE
+   Desktop: 320px width x 180px height
+   ========================================== */
+.panel-image {
+    display: block;
+    width: 320px;
+    height: 180px;
+    max-width: 100%;
+    margin: 0 auto 12px;
+    border: 2px solid #ded7ca;
+    border-radius: 8px;
+    background: #ede6d8;
+    object-fit: cover;
+}
+
+.panel-content {
+    padding: 10px 24px 24px;
+}
+
+.scene-description {
+    margin-bottom: 18px;
+    padding-left: 14px;
+    border-left: 4px solid var(--accent);
+    color: #4d4d4d;
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.story-section {
+    margin: 15px 0;
+}
+
+.story-section p {
+    margin-bottom: 0;
+    color: #3f3f3f;
+    line-height: 1.6;
+}
+
+.dialogue-section {
+    padding: 14px;
+    border-radius: 10px;
+    background: #f5f1ff;
+}
+
+.prompt-details {
+    margin-top: 18px;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+    color: var(--muted-text);
+}
+
+.prompt-details summary {
+    cursor: pointer;
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.prompt-details p {
+    margin-top: 12px;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+.bottom-actions {
+    margin-top: 28px;
+}
+
+/* ==========================================
+   MOBILE SCREEN DESIGN
+   ========================================== */
+@media (max-width: 720px) {
+    .page-container {
+        width: min(100% - 22px, 1000px);
+        padding-top: 24px;
+    }
+
+    .hero-card,
+    .success-card {
+        padding: 25px;
+    }
+
+    .form-grid,
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .secondary-button {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+
+    .panel-heading {
+        align-items: flex-start;
+        padding: 18px;
+    }
+
+    .panel-content {
+        padding: 12px 18px 18px;
+    }
+
+    /* Small image size for mobile phones */
+    .panel-image {
+        width: 280px;
+        height: 158px;
+        max-width: 100%;
+        margin: 0 auto 10px;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+}

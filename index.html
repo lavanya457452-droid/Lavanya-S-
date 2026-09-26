@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>ComicCraft — AI Comic Story Creator</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/css/style.css"
+    >
+</head>
+
+<body>
+    <main class="page-container">
+        <section class="card hero-card">
+            <p class="eyebrow">
+                AI-POWERED STORYTELLING
+            </p>
+
+            <h1>ComicCraft</h1>
+
+            <p class="intro">
+                Turn your imagination into a five-panel comic with scenes,
+                captions, dialogue, illustrations, and a downloadable PDF.
+            </p>
+
+            {% if error %}
+                <div class="error-box">
+                    <strong>Comic generation failed:</strong>
+                    <span>{{ error }}</span>
+                </div>
+            {% endif %}
+
+            <form
+                action="/generate"
+                method="post"
+                class="comic-form"
+            >
+                <label for="prompt">
+                    Story prompt
+                </label>
+
+                <textarea
+                    id="prompt"
+                    name="prompt"
+                    required
+                    minlength="3"
+                    placeholder="Example: A brave fox finds a magical map in an enchanted forest."
+                ></textarea>
+
+                <div class="form-grid">
+                    <div>
+                        <label for="character_name">
+                            Main character name
+                        </label>
+
+                        <input
+                            id="character_name"
+                            name="character_name"
+                            type="text"
+                            value="Alex"
+                            required
+                        >
+                    </div>
+
+                    <div>
+                        <label for="setting">
+                            Story setting
+                        </label>
+
+                        <input
+                            id="setting"
+                            name="setting"
+                            type="text"
+                            value="enchanted forest"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div>
+                        <label for="tone">
+                            Story tone
+                        </label>
+
+                        <select
+                            id="tone"
+                            name="tone"
+                        >
+                            <option value="dramatic">
+                                Dramatic
+                            </option>
+
+                            <option value="funny">
+                                Funny
+                            </option>
+
+                            <option value="light-hearted">
+                                Light-hearted
+                            </option>
+
+                            <option value="poetic">
+                                Poetic
+                            </option>
+
+                            <option value="mysterious">
+                                Mysterious
+                            </option>
+
+                            <option value="adventurous">
+                                Adventurous
+                            </option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="art_style">
+                            Art style
+                        </label>
+
+                        <select
+                            id="art_style"
+                            name="art_style"
+                        >
+                            <option value="comic book">
+                                Comic book
+                            </option>
+
+                            <option value="anime">
+                                Anime
+                            </option>
+
+                            <option value="pixel art">
+                                Pixel art
+                            </option>
+
+                            <option value="realistic">
+                                Realistic
+                            </option>
+
+                            <option value="watercolor">
+                                Watercolor
+                            </option>
+
+                            <option value="cartoon">
+                                Cartoon
+                            </option>
+                        </select>
+                    </div>
+                </div>
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Generate My Comic
+                </button>
+            </form>
+        </section>
+
+        <section class="feature-grid">
+            <article class="feature-card">
+                <h2>01. Create Story</h2>
+
+                <p>
+                    Generate a connected five-panel narrative with scenes,
+                    captions, narration, and dialogue.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <h2>02. Generate Artwork</h2>
+
+                <p>
+                    Use local placeholder images while developing, or connect
+                    Hugging Face for AI-generated illustrations.
+                </p>
+            </article>
+
+            <article class="feature-card">
+                <h2>03. Export PDF</h2>
+
+                <p>
+                    Download a multi-page PDF containing all comic panels and
+                    their written story content.
+                </p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>
